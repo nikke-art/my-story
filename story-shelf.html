@@ -1,0 +1,641 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="default">
+  <meta name="apple-mobile-web-app-title" content="Story Shelf">
+  <meta name="mobile-web-app-capable" content="yes">
+  <meta name="theme-color" content="#E8896A">
+  <link rel="apple-touch-icon" sizes="180x180" href="data:image/png;base64,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">
+<meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
+<title>📖 Story Shelf</title>
+<link href="https://fonts.googleapis.com/css2?family=Zen+Maru+Gothic:wght@400;500;700&display=swap" rel="stylesheet">
+<style>:root{
+  --bg:#FDF8F5;--bg2:#FFF0EC;--card:#FFFFFF;--border:#F2E4DF;
+  --text:#3D2418;--text2:#C0856A;--accent:#E8896A;
+  --lav:#B8A9D9;--lav2:#EDE8F8;--mint2:#E0F5EE;--peach:#F5C4B0;
+  --grad:linear-gradient(135deg,#E8896A,#F5B49A);
+  --grad2:linear-gradient(135deg,#B8A9D9,#D4CBF0);
+  --shadow:0 2px 14px rgba(61,36,24,0.07);--r:16px;
+}
+*{box-sizing:border-box;margin:0;padding:0;-webkit-tap-highlight-color:transparent;}
+body{font-family:'Zen Maru Gothic',sans-serif;background:var(--bg);color:var(--text);min-height:100vh;padding-bottom:100px;}
+.header{background:var(--grad);padding:52px 22px 22px;position:relative;overflow:hidden;}
+.hb{position:absolute;border-radius:50%;background:rgba(255,255,255,0.15);}
+.hb1{width:220px;height:220px;top:-80px;right:-60px;}.hb2{width:110px;height:110px;bottom:-40px;left:40px;}
+.h-eye{font-size:10px;letter-spacing:3px;text-transform:uppercase;color:rgba(255,255,255,0.75);margin-bottom:4px;position:relative;}
+.h-title{font-size:30px;font-weight:900;color:white;margin-bottom:3px;position:relative;letter-spacing:-0.5px;}
+.h-sub{font-size:12px;color:rgba(255,255,255,0.8);margin-bottom:14px;position:relative;}
+.h-stats{display:flex;gap:8px;flex-wrap:wrap;position:relative;}
+.h-pill{background:rgba(255,255,255,0.28);border:1px solid rgba(255,255,255,0.4);border-radius:100px;padding:5px 13px;font-size:11px;color:white;font-weight:500;}
+.sw{padding:14px 18px 0;}
+.sb{width:100%;padding:10px 16px 10px 40px;border:1.5px solid var(--border);border-radius:100px;background:var(--card) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='%23C0856A' stroke-width='2'%3E%3Ccircle cx='11' cy='11' r='8'/%3E%3Cpath d='m21 21-4.35-4.35'/%3E%3C/svg%3E") no-repeat 13px center;font-family:'Zen Maru Gothic',sans-serif;font-size:13px;color:var(--text);outline:none;}
+.sb:focus{border-color:var(--accent);}
+.sr{padding:8px 18px 0;display:none;}
+.sri{background:var(--card);border-radius:12px;border:1px solid var(--border);padding:10px 14px;margin-bottom:6px;cursor:pointer;box-shadow:var(--shadow);}
+.screen{display:none;}.screen.active{display:block;}
+.pad{padding:16px 18px;}
+.sec-t{font-size:10px;letter-spacing:2px;text-transform:uppercase;color:var(--text2);font-weight:500;margin-bottom:12px;}
+.sl{display:flex;flex-direction:column;gap:10px;}
+.sc{background:var(--card);border-radius:var(--r);border:1px solid var(--border);padding:16px 16px 16px 20px;box-shadow:var(--shadow);cursor:pointer;display:flex;align-items:center;gap:14px;position:relative;overflow:hidden;}
+.sc-stripe{position:absolute;left:0;top:0;bottom:0;width:5px;}
+.sc-icon{font-size:26px;flex-shrink:0;}
+.sc-av{width:40px;height:40px;border-radius:12px;flex-shrink:0;display:flex;align-items:center;justify-content:center;font-size:16px;font-weight:700;color:white;}
+.sc-body{flex:1;min-width:0;}
+.sc-badge{display:inline-block;font-size:9px;padding:2px 8px;border-radius:100px;font-weight:600;margin-bottom:4px;}
+.sc-name{font-size:15px;font-weight:800;}
+.sc-meta{font-size:11px;color:var(--text2);margin-top:4px;}
+.add-btn{width:100%;padding:14px;border:2px dashed var(--border);border-radius:var(--r);background:none;font-family:'Zen Maru Gothic',sans-serif;font-size:13px;color:var(--text2);cursor:pointer;margin-top:10px;}
+.navbar{display:flex;align-items:center;gap:10px;padding:14px 18px;background:var(--card);border-bottom:1px solid var(--border);position:sticky;top:0;z-index:50;}
+.back-btn{background:none;border:none;font-size:18px;cursor:pointer;color:var(--accent);padding:4px 8px;}
+.nav-t{font-size:15px;font-weight:800;flex:1;}
+.neb{background:none;border:1.5px solid var(--border);border-radius:100px;padding:6px 14px;font-size:11px;color:var(--accent);cursor:pointer;font-family:'Zen Maru Gothic',sans-serif;font-weight:500;}
+.neb-w{background:none;border:1.5px solid rgba(255,255,255,0.4);border-radius:100px;padding:6px 14px;font-size:11px;color:white;cursor:pointer;font-family:'Zen Maru Gothic',sans-serif;font-weight:500;}
+.stabs{display:flex;background:var(--card);border-bottom:2px solid var(--border);overflow-x:auto;scrollbar-width:none;}
+.stabs::-webkit-scrollbar{display:none;}
+.stab{flex-shrink:0;flex:1;padding:11px 8px;text-align:center;font-size:12px;font-weight:500;color:var(--text2);cursor:pointer;border:none;background:none;border-bottom:3px solid transparent;margin-bottom:-2px;transition:all 0.2s;font-family:'Zen Maru Gothic',sans-serif;white-space:nowrap;}
+.stab.active{color:var(--accent);border-bottom-color:var(--accent);font-weight:700;}
+.tp{display:none;padding:18px;}.tp.active{display:block;}
+.sub-tog{display:flex;gap:8px;margin-bottom:16px;}
+.sub-btn{flex:1;padding:8px;border-radius:12px;border:1.5px solid var(--border);background:var(--card);font-family:'Zen Maru Gothic',sans-serif;font-size:12px;font-weight:500;color:var(--text2);cursor:pointer;}
+.sub-btn.active{background:var(--lav2);border-color:var(--lav);color:#6B5B9E;font-weight:700;}
+.wnote{background:var(--card);border-radius:var(--r);border:1px solid var(--border);padding:18px;box-shadow:var(--shadow);margin-bottom:12px;}
+.wnote-t{font-size:10px;font-weight:700;color:var(--accent);margin-bottom:10px;letter-spacing:1px;text-transform:uppercase;}
+.wnote-tx{font-size:13px;line-height:2;white-space:pre-wrap;}
+.wnote-em{font-size:12px;color:#ccc;}
+.cl{display:flex;flex-direction:column;gap:12px;}
+.cc{background:var(--card);border-radius:var(--r);border:1px solid var(--border);padding:16px;box-shadow:var(--shadow);cursor:pointer;}
+.cc-name{font-size:16px;font-weight:800;}
+.cc-cross{font-size:12px;color:var(--text2);margin-top:3px;}
+.char-list{display:flex;flex-direction:column;gap:8px;}
+.char-card{background:var(--card);border-radius:var(--r);border:1px solid var(--border);padding:14px 16px;box-shadow:var(--shadow);cursor:pointer;display:flex;align-items:center;gap:12px;}
+.ci{width:42px;height:42px;border-radius:50%;overflow:hidden;flex-shrink:0;background:var(--lav2);display:flex;align-items:center;justify-content:center;font-size:16px;font-weight:700;color:var(--lav);}
+.ci img{width:100%;height:100%;object-fit:cover;}
+.char-name{font-size:14px;font-weight:700;}
+.char-sub{font-size:11px;color:var(--text2);margin-top:2px;}
+.sort-bar{display:flex;gap:6px;margin-bottom:14px;overflow-x:auto;scrollbar-width:none;}
+.sort-btn{flex-shrink:0;padding:5px 12px;border-radius:100px;border:1.5px solid var(--border);background:var(--card);font-size:11px;font-weight:500;color:var(--text2);cursor:pointer;font-family:'Zen Maru Gothic',sans-serif;}
+.sort-btn.active{background:var(--accent);border-color:var(--accent);color:white;}
+.ro{display:flex;flex-direction:column;gap:12px;}
+.ro-card{background:var(--card);border-radius:var(--r);border:1px solid var(--border);padding:16px;box-shadow:var(--shadow);}
+.ro-from{font-size:12px;font-weight:700;color:var(--accent);margin-bottom:8px;}
+.coup-hdr{padding:28px 20px 22px;position:relative;overflow:hidden;background:var(--grad2);}
+.ch-blob{position:absolute;border-radius:50%;background:rgba(255,255,255,0.12);}
+.ch-b1{width:180px;height:180px;top:-60px;right:-40px;}
+.ch-b2{width:80px;height:80px;bottom:-20px;left:60px;}
+.ch-in{position:relative;}
+.ch-badge{display:inline-block;background:rgba(255,255,255,0.25);border:1px solid rgba(255,255,255,0.4);border-radius:100px;padding:3px 12px;font-size:10px;color:white;margin-bottom:10px;font-weight:500;}
+.ch-name{font-size:24px;font-weight:800;color:white;margin-bottom:4px;}
+.ch-cross{font-size:14px;color:rgba(255,255,255,0.8);margin-bottom:14px;}
+.ch-chips{display:flex;gap:8px;flex-wrap:wrap;}
+.ch-chip{background:rgba(255,255,255,0.22);border:1px solid rgba(255,255,255,0.35);border-radius:100px;padding:5px 16px;font-size:12px;color:white;font-weight:500;cursor:pointer;}
+.hs{background:var(--card);border-radius:var(--r);border:1px solid var(--border);padding:18px;box-shadow:var(--shadow);margin-bottom:12px;}
+.hs-t{font-size:10px;font-weight:700;color:var(--accent);margin-bottom:14px;letter-spacing:1px;text-transform:uppercase;}
+.hbars{display:flex;align-items:flex-end;justify-content:center;gap:20px;margin-bottom:12px;}
+.hbw{display:flex;flex-direction:column;align-items:center;gap:6px;}
+.hbar{border-radius:8px 8px 0 0;width:54px;min-height:20px;background:var(--grad2);}
+.hbar-n{font-size:12px;font-weight:700;text-align:center;}
+.hbar-v{font-size:11px;color:var(--text2);}
+.hdiff{display:block;text-align:center;background:var(--lav2);border-radius:100px;padding:5px 16px;font-size:12px;color:#6B5B9E;font-weight:500;width:fit-content;margin:0 auto;}
+.ac{background:var(--card);border-radius:var(--r);border:1px solid var(--border);padding:14px 16px;box-shadow:var(--shadow);margin-bottom:10px;display:flex;align-items:center;gap:14px;cursor:pointer;}
+.ai{font-size:26px;flex-shrink:0;}
+.ab{flex:1;}
+.an{font-size:13px;font-weight:700;}
+.ad{font-size:11px;color:var(--text2);margin-top:2px;}
+.adays{font-size:20px;font-weight:700;color:var(--accent);line-height:1;}
+.albl{font-size:9px;color:var(--text2);}
+.rs{background:var(--card);border-radius:var(--r);border:1px solid var(--border);padding:18px;box-shadow:var(--shadow);margin-bottom:12px;}
+.rs-t{font-size:10px;font-weight:700;color:var(--accent);margin-bottom:14px;letter-spacing:1px;text-transform:uppercase;}
+.ir{display:flex;gap:8px;margin-bottom:8px;align-items:flex-start;}
+.il{font-size:10px;color:var(--text2);font-weight:600;min-width:80px;padding-top:2px;}
+.iv2{font-size:13px;color:var(--text);flex:1;line-height:1.7;}
+.qs{background:var(--card);border-radius:var(--r);border:1px solid var(--border);padding:18px;box-shadow:var(--shadow);margin-bottom:12px;}
+.qi{background:var(--bg);border-radius:12px;border:1px solid var(--border);padding:12px 14px;margin-bottom:8px;cursor:pointer;}
+.qq{font-size:11px;color:var(--text2);font-weight:600;margin-bottom:4px;}
+.qa{font-size:13px;color:var(--text);line-height:1.7;}
+.char-hdr{padding:28px 20px 22px;position:relative;overflow:hidden;background:var(--grad);}
+.chdr-b{position:absolute;border-radius:50%;background:rgba(255,255,255,0.12);}
+.chdr-b1{width:160px;height:160px;top:-50px;right:-30px;}
+.chdr-in{position:relative;}
+.cbig{width:72px;height:72px;border-radius:50%;overflow:hidden;border:3px solid rgba(255,255,255,0.5);margin-bottom:12px;background:rgba(255,255,255,0.25);display:flex;align-items:center;justify-content:center;font-size:28px;font-weight:700;color:white;}
+.cbig img{width:100%;height:100%;object-fit:cover;}
+.ch-cname{font-size:24px;font-weight:800;color:white;}
+.ch-kana{font-size:12px;color:rgba(255,255,255,0.8);margin-top:3px;}
+.ch-series{font-size:11px;color:rgba(255,255,255,0.65);margin-top:5px;}
+.ch-pill{margin-top:8px;background:rgba(255,255,255,0.2);border-radius:100px;padding:4px 14px;display:inline-block;font-size:11px;color:white;cursor:pointer;}
+.ctabs{display:flex;background:var(--card);border-bottom:2px solid var(--border);overflow-x:auto;scrollbar-width:none;}
+.ctabs::-webkit-scrollbar{display:none;}
+.ctab{flex-shrink:0;padding:11px 14px;font-size:11px;font-weight:500;color:var(--text2);cursor:pointer;border:none;background:none;border-bottom:3px solid transparent;margin-bottom:-2px;transition:all 0.2s;font-family:'Zen Maru Gothic',sans-serif;white-space:nowrap;}
+.ctab.active{color:var(--accent);border-bottom-color:var(--accent);font-weight:700;}
+.ctp{display:none;padding:18px;}.ctp.active{display:block;}
+.pgrid{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:16px;}
+.pf{background:var(--card);border-radius:14px;border:1px solid var(--border);padding:12px 14px;box-shadow:var(--shadow);}
+.pf.full{grid-column:1/-1;}
+.pf-l{font-size:9px;color:var(--text2);font-weight:500;letter-spacing:1px;margin-bottom:5px;text-transform:uppercase;}
+.pf-v{font-size:13px;font-weight:500;line-height:1.7;}
+.pf-e{font-size:12px;color:#ccc;}
+.rl{display:flex;flex-direction:column;gap:10px;}
+.rc{background:var(--card);border-radius:var(--r);border:1px solid var(--border);padding:14px 16px;box-shadow:var(--shadow);cursor:pointer;}
+.rt{display:flex;align-items:center;gap:12px;}
+.ri{width:38px;height:38px;border-radius:50%;overflow:hidden;background:var(--lav2);flex-shrink:0;display:flex;align-items:center;justify-content:center;font-size:14px;font-weight:700;color:var(--lav);}
+.ri img{width:100%;height:100%;object-fit:cover;}
+.rinfo{flex:1;min-width:0;}
+.rn{font-size:14px;font-weight:700;}
+.rtype{font-size:10px;color:var(--accent);font-weight:700;margin-top:2px;}
+.rcall{font-size:11px;color:var(--text2);margin-top:2px;}
+.rh{margin-top:8px;}
+.rmemo{font-size:11px;color:var(--text2);margin-top:6px;line-height:1.7;}
+.ig{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;}
+.it{aspect-ratio:1;border-radius:12px;overflow:hidden;background:var(--bg2);border:1px solid var(--border);cursor:pointer;}
+.it img{width:100%;height:100%;object-fit:cover;}
+.empty{text-align:center;padding:50px 20px;color:var(--text2);}
+.empty-e{font-size:40px;margin-bottom:12px;}
+.empty p{font-size:12px;line-height:2;}
+.ov{display:none;position:fixed;inset:0;background:rgba(61,36,24,0.35);z-index:200;align-items:flex-end;justify-content:center;}
+.ov.open{display:flex;animation:fi 0.2s;}
+@keyframes fi{from{opacity:0;}to{opacity:1;}}
+.modal{width:100%;max-width:480px;background:var(--bg);border-radius:24px 24px 0 0;padding:20px 20px 80px;max-height:88vh;overflow-y:auto;-webkit-overflow-scrolling:touch;animation:su 0.3s ease;}
+@keyframes su{from{transform:translateY(100%);}to{transform:translateY(0);}}
+.mh{width:36px;height:4px;background:var(--border);border-radius:2px;margin:0 auto 20px;}
+.mt{font-size:18px;font-weight:800;color:var(--text);margin-bottom:20px;text-align:center;}
+.fg{margin-bottom:12px;}
+.fl{font-size:11px;color:var(--text2);margin-bottom:5px;display:block;font-weight:500;}
+.fi,.fsel,.fta{width:100%;padding:11px 14px;border:1.5px solid var(--border);border-radius:12px;background:var(--card);font-family:'Zen Maru Gothic',sans-serif;font-size:13px;color:var(--text);outline:none;-webkit-appearance:none;}
+.fi:focus,.fsel:focus,.fta:focus{border-color:var(--accent);}
+.fta{resize:none;}.fta-sm{height:74px;}.fta-lg{height:130px;}
+.frow{display:flex;gap:10px;}.frow .fg{flex:1;min-width:0;}
+.fsec{font-size:9px;letter-spacing:2px;text-transform:uppercase;color:var(--text2);font-weight:500;margin:16px 0 10px;display:block;}
+.bdr{display:flex;gap:8px;}.bdr .fsel{flex:1;}
+.iup{width:100%;padding:18px;border:2px dashed var(--border);border-radius:12px;background:var(--card);text-align:center;cursor:pointer;}
+.iup input{display:none;}
+.ipl{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:10px;}
+.ipi{width:60px;height:60px;border-radius:10px;overflow:hidden;position:relative;border:1px solid var(--border);}
+.ipi img{width:100%;height:100%;object-fit:cover;}
+.ipd{position:absolute;top:2px;right:2px;width:17px;height:17px;background:rgba(0,0,0,0.5);border-radius:50%;border:none;color:white;font-size:10px;cursor:pointer;}
+.btn-p{width:100%;padding:15px;border:none;border-radius:14px;background:var(--grad);color:white;font-family:'Zen Maru Gothic',sans-serif;font-size:14px;font-weight:700;cursor:pointer;margin-top:6px;}
+.btn-d{width:100%;padding:11px;border:none;background:none;color:#E57373;font-family:'Zen Maru Gothic',sans-serif;font-size:12px;cursor:pointer;margin-top:8px;text-decoration:underline;}
+.btn-c{width:100%;padding:12px;border:none;background:none;color:var(--text2);font-family:'Zen Maru Gothic',sans-serif;font-size:12px;cursor:pointer;margin-top:4px;}
+.btn-s{width:100%;padding:12px;border:1.5px solid var(--border);border-radius:12px;background:var(--card);color:var(--accent);font-family:'Zen Maru Gothic',sans-serif;font-size:13px;font-weight:500;cursor:pointer;margin-top:10px;}
+.qa-add{width:100%;padding:10px;border:2px dashed var(--border);border-radius:12px;background:none;font-family:'Zen Maru Gothic',sans-serif;font-size:12px;color:var(--text2);cursor:pointer;margin-top:8px;}
+.fab{position:fixed;bottom:26px;right:20px;width:54px;height:54px;border-radius:50%;background:var(--grad);border:none;color:white;font-size:22px;cursor:pointer;z-index:100;box-shadow:0 8px 26px rgba(232,137,106,0.4);display:flex;align-items:center;justify-content:center;}
+.imgv{display:none;position:fixed;inset:0;background:rgba(0,0,0,0.88);z-index:500;align-items:center;justify-content:center;}
+.imgv.open{display:flex;}
+.imgv img{max-width:92vw;max-height:88vh;border-radius:12px;}
+.imgv-x{position:absolute;top:20px;right:20px;background:rgba(255,255,255,0.18);border:none;color:white;font-size:18px;width:38px;height:38px;border-radius:50%;cursor:pointer;}
+.hr{display:flex;gap:4px;}
+.hbtn{font-size:22px;cursor:pointer;background:none;border:none;padding:2px;}
+.del-bg{display:none;position:fixed;inset:0;background:rgba(61,36,24,0.5);z-index:300;align-items:center;justify-content:center;padding:20px;}
+.del-bg.open{display:flex;}
+.del-box{background:var(--card);border-radius:24px;padding:32px 24px;width:100%;max-width:320px;text-align:center;box-shadow:0 20px 60px rgba(61,36,24,0.2);}
+.del-yes{width:100%;padding:14px;border:none;border-radius:12px;background:#E57373;color:white;font-family:'Zen Maru Gothic',sans-serif;font-size:14px;font-weight:700;cursor:pointer;margin-bottom:10px;}
+.del-no{width:100%;padding:12px;border:1.5px solid var(--border);border-radius:12px;background:var(--card);color:var(--text2);font-family:'Zen Maru Gothic',sans-serif;font-size:13px;cursor:pointer;}</style>
+</head><body>
+
+<!-- TOP -->
+<div class="screen active" id="scTop">
+  <div class="header"><div class="hb hb1"></div><div class="hb hb2"></div>
+    <div class="h-eye">Story Shelf</div><div class="h-title">Story Shelf 📖</div>
+    <div class="h-sub">創作世界をここに。</div><div class="h-stats" id="topStats"></div></div>
+  <div class="sw"><input class="sb" id="searchBox" placeholder="キャラクターを検索..."></div>
+  <div class="sr" id="searchRes"></div>
+  <div class="pad"><div class="sec-t">シリーズ一覧</div>
+    <div id="seriesList" class="sl"></div>
+    <button class="add-btn" id="btnAddS">＋ シリーズを追加</button></div>
+</div>
+
+<!-- SERIES -->
+<div class="screen" id="scSeries">
+  <div class="navbar"><button class="back-btn" id="btnSBack">←</button>
+    <div class="nav-t" id="sNavT"></div>
+    <button class="neb" id="btnSEdit">編集</button></div>
+  <div class="stabs" id="sStabs"></div>
+  <div id="st-world" class="tp active"><div id="sWorldC"></div></div>
+  <div id="st-coup" class="tp">
+    <div class="sub-tog"><button class="sub-btn active" id="sbCoups">カップリング</button><button class="sub-btn" id="sbChars">キャラ</button></div>
+    <div id="subC"><div id="sCoupL" class="cl"></div></div>
+    <div id="subCh" style="display:none">
+      <div class="sort-bar"><button class="sort-btn active" data-s="def">追加順</button><button class="sort-btn" data-s="name">名前順</button><button class="sort-btn" data-s="bd">誕生日順</button></div>
+      <div id="sCoupChL" class="char-list"></div></div></div>
+  <div id="st-chars" class="tp">
+    <div class="sort-bar"><button class="sort-btn active" data-s="def">追加順</button><button class="sort-btn" data-s="name">名前順</button><button class="sort-btn" data-s="bd">誕生日順</button></div>
+    <div id="sCharL" class="char-list"></div></div>
+  <div id="st-rels" class="tp"><div id="sRelC" class="ro"></div></div>
+  <button class="fab" id="sFab">＋</button>
+</div>
+
+<!-- COUP -->
+<div class="screen" id="scCoup">
+  <div class="navbar" style="background:transparent;position:absolute;z-index:10;width:100%">
+    <button class="back-btn" style="color:white" id="btnCBack">←</button>
+    <div class="nav-t" style="color:white" id="cNavT"></div>
+    <button class="neb-w" id="btnCEdit">編集</button></div>
+  <div id="coupHdr" class="coup-hdr" style="padding-top:72px"></div>
+  <div class="stabs" id="cStabs">
+    <button class="stab active" data-tab="members">メンバー</button>
+    <button class="stab" data-tab="world">世界観</button>
+    <button class="stab" data-tab="info">ロマンス設定</button>
+    <button class="stab" data-tab="anni">記念日</button>
+    <button class="stab" data-tab="images">画像</button></div>
+  <div id="ct-members" class="tp active"></div>
+  <div id="ct-world" class="tp"></div>
+  <div id="ct-info" class="tp"></div>
+  <div id="ct-anni" class="tp"></div>
+  <div id="ct-images" class="tp"></div>
+  <button class="fab" id="cFab">＋</button>
+</div>
+
+<!-- CHAR -->
+<div class="screen" id="scChar">
+  <div class="navbar" style="background:transparent;position:absolute;z-index:10;width:100%">
+    <button class="back-btn" style="color:white" id="btnChBack">←</button>
+    <div class="nav-t" style="color:white"></div>
+    <button class="neb-w" id="btnChEdit">編集</button></div>
+  <div id="charHdr" class="char-hdr" style="padding-top:70px"></div>
+  <div class="ctabs" id="charTabs">
+    <button class="ctab active" data-tab="basic">基本</button>
+    <button class="ctab" data-tab="life">生活</button>
+    <button class="ctab" data-tab="inner">内面</button>
+    <button class="ctab" data-tab="rel">関係性</button>
+    <button class="ctab" data-tab="images">画像</button>
+    <button class="ctab" data-tab="memo">メモ</button></div>
+  <div id="cht-basic" class="ctp active"></div>
+  <div id="cht-life" class="ctp"></div>
+  <div id="cht-inner" class="ctp"></div>
+  <div id="cht-rel" class="ctp"></div>
+  <div id="cht-images" class="ctp"></div>
+  <div id="cht-memo" class="ctp"></div>
+  <button class="fab" id="chFab">＋</button>
+</div>
+
+<!-- MODALS -->
+<div class="ov" id="mS"><div class="modal">
+  <div class="mh"></div><div class="mt" id="mST">シリーズを追加</div>
+  <div class="fg"><label class="fl">シリーズ名</label><input class="fi" id="sf-name"></div>
+  <div class="fg"><label class="fl">アイコン（なしでもOK）</label><input class="fi" id="sf-icon" placeholder="任意"></div>
+  <div class="fg"><label class="fl">種類</label><select class="fsel" id="sf-type"><option value="normal">ノーマル（キャラのみ）</option><option value="coupling">カップリング</option></select></div>
+  <div class="fg"><label class="fl">キャラ一覧の呼び名</label><input class="fi" id="sf-clabel" placeholder="空白で「キャラ」"></div>
+  <div class="fg" id="sf-cpw" style="display:none"><label class="fl">カップリングの呼び名</label><input class="fi" id="sf-cplabel" placeholder="空白で「カップリング」"></div>
+  <span class="fsec">世界観</span>
+  <div class="fg"><label class="fl">背景・時間軸</label><textarea class="fta fta-sm" id="sf-bg"></textarea></div>
+  <div class="fg"><label class="fl">その他設定</label><textarea class="fta fta-sm" id="sf-other"></textarea></div>
+  <button class="btn-p" id="bSS">保存する</button>
+  <button class="btn-d" id="bDS" style="display:none">🗑️ シリーズを削除する</button>
+  <button class="btn-c" id="bCS">キャンセル</button>
+</div></div>
+
+<div class="ov" id="mW"><div class="modal">
+  <div class="mh"></div><div class="mt" id="mWT">世界観を編集</div>
+  <div class="fg"><label class="fl">背景・時間軸</label><textarea class="fta fta-sm" id="wf-bg"></textarea></div>
+  <div class="fg"><label class="fl">その他設定</label><textarea class="fta fta-lg" id="wf-other"></textarea></div>
+  <button class="btn-p" id="bSW">保存する</button>
+  <button class="btn-c" id="bCW">キャンセル</button>
+</div></div>
+
+<div class="ov" id="mCP"><div class="modal">
+  <div class="mh"></div><div class="mt" id="mCPT">カップリングを追加</div>
+  <div class="fg"><label class="fl">カップリング名</label><input class="fi" id="cpf-name"></div>
+  <div class="fg"><label class="fl">アイコン（なしでもOK）</label><input class="fi" id="cpf-icon" placeholder="任意"></div>
+  <span class="fsec">メンバー</span>
+  <div class="fg"><label class="fl">名前 1</label><input class="fi" id="cpf-m1"></div>
+  <div class="fg"><label class="fl">名前 2</label><input class="fi" id="cpf-m2"></div>
+  <span class="fsec">ロマンス設定</span>
+  <div class="fg"><label class="fl">ステータス</label><select class="fsel" id="cpf-st"><option value="">未設定</option><option>両思い</option><option>片思い</option><option>付き合ってる</option><option>婚約中</option><option>結婚</option><option>元カレ・元カノ</option><option>その他</option></select></div>
+  <div class="fg" id="cpf-dw" style="display:none"><label class="fl">どっちから？</label><select class="fsel" id="cpf-dir"><option value="">選択...</option></select></div>
+  <div class="fg"><label class="fl">距離感</label><select class="fsel" id="cpf-dist"><option value="">未設定</option><option>近距離</option><option>中距離</option><option>遠距離</option><option>同棲中</option><option>半同棲中</option><option>別居</option><option>その他</option></select></div>
+  <div class="fg"><label class="fl">関係性の詳細</label><textarea class="fta fta-sm" id="cpf-det"></textarea></div>
+  <span class="fsec">画像</span>
+  <div class="ipl" id="cpf-ip"></div>
+  <div class="iup" id="cpf-ua"><input type="file" id="cpf-if" accept="image/*" multiple><div style="font-size:12px;color:var(--text2)">📷 タップして追加</div></div>
+  <button class="btn-p" id="bSCP">保存する</button>
+  <button class="btn-d" id="bDCP" style="display:none">🗑️ カップリングを削除する</button>
+  <button class="btn-c" id="bCCP">キャンセル</button>
+</div></div>
+
+<div class="ov" id="mROM"><div class="modal">
+  <div class="mh"></div><div class="mt">💕 ロマンス設定を編集</div>
+  <div class="fg"><label class="fl">ステータス</label><select class="fsel" id="rom-st"><option value="">未設定</option><option>両思い</option><option>片思い</option><option>付き合ってる</option><option>婚約中</option><option>結婚</option><option>元カレ・元カノ</option><option>その他</option></select></div>
+  <div class="fg" id="rom-dw" style="display:none"><label class="fl">どっちから？</label><select class="fsel" id="rom-dir"><option value="">選択...</option></select></div>
+  <div class="fg"><label class="fl">距離感</label><select class="fsel" id="rom-dist"><option value="">未設定</option><option>近距離</option><option>中距離</option><option>遠距離</option><option>同棲中</option><option>半同棲中</option><option>別居</option><option>その他</option></select></div>
+  <div class="fg"><label class="fl">関係性の詳細</label><textarea class="fta fta-sm" id="rom-det"></textarea></div>
+  <div class="fg"><label class="fl">告白したのは？</label><input class="fi" id="rom-conf"></div>
+  <div class="fg"><label class="fl">初めて意識したのは？</label><textarea class="fta fta-sm" id="rom-first"></textarea></div>
+  <div class="fg"><label class="fl">2人だけの秘密</label><textarea class="fta fta-sm" id="rom-sec"></textarea></div>
+  <div class="fg"><label class="fl">フリーメモ</label><textarea class="fta fta-lg" id="rom-memo"></textarea></div>
+  <button class="btn-p" id="bSROM">保存する</button>
+  <button class="btn-c" id="bCROM">キャンセル</button>
+</div></div>
+
+<div class="ov" id="mQA"><div class="modal">
+  <div class="mh"></div><div class="mt" id="mQAT">質問を追加</div>
+  <div class="fg"><label class="fl">質問</label><input class="fi" id="qa-q" placeholder="例：初めてのデートは？"></div>
+  <div class="fg"><label class="fl">答え</label><textarea class="fta fta-lg" id="qa-a"></textarea></div>
+  <button class="btn-p" id="bSQA">保存する</button>
+  <button class="btn-d" id="bDQA" style="display:none">🗑️ 質問を削除する</button>
+  <button class="btn-c" id="bCQA">キャンセル</button>
+</div></div>
+
+<div class="ov" id="mA"><div class="modal">
+  <div class="mh"></div><div class="mt" id="mAT">記念日を追加</div>
+  <div class="fg"><label class="fl">名前</label><input class="fi" id="af-name"></div>
+  <div class="fg"><label class="fl">アイコン（任意）</label><input class="fi" id="af-icon" placeholder="任意"></div>
+  <div class="fg"><label class="fl">日付</label><input class="fi" id="af-date" type="date"></div>
+  <button class="btn-p" id="bSA">保存する</button>
+  <button class="btn-d" id="bDA" style="display:none">🗑️ 記念日を削除する</button>
+  <button class="btn-c" id="bCA">キャンセル</button>
+</div></div>
+
+<div class="ov" id="mC"><div class="modal">
+  <div class="mh"></div><div class="mt" id="mCT">キャラクターを追加</div>
+  <span class="fsec">基本情報</span>
+  <div class="frow"><div class="fg"><label class="fl">名前</label><input class="fi" id="chf-name"></div><div class="fg"><label class="fl">よみ</label><input class="fi" id="chf-kana"></div></div>
+  <div class="frow"><div class="fg"><label class="fl">年齢</label><input class="fi" id="chf-age" type="number"></div><div class="fg"><label class="fl">誕生日</label><div class="bdr"><select class="fsel" id="chf-bdm"></select><select class="fsel" id="chf-bdd"></select></div></div></div>
+  <div class="frow"><div class="fg"><label class="fl">性別</label><input class="fi" id="chf-gender"></div><div class="fg"><label class="fl">血液型</label><select class="fsel" id="chf-blood"><option value="">-</option><option>A型</option><option>B型</option><option>O型</option><option>AB型</option></select></div></div>
+  <div class="frow"><div class="fg"><label class="fl">身長(cm)</label><input class="fi" id="chf-ht" type="number"></div><div class="fg"><label class="fl">体重</label><input class="fi" id="chf-wt"></div></div>
+  <span class="fsec">外見</span>
+  <div class="fg"><label class="fl">外見メモ</label><textarea class="fta fta-sm" id="chf-app"></textarea></div>
+  <span class="fsec">生活</span>
+  <div class="frow"><div class="fg"><label class="fl">職業</label><input class="fi" id="chf-job"></div><div class="fg"><label class="fl">職場・所属</label><input class="fi" id="chf-wp"></div></div>
+  <div class="fg"><label class="fl">住居</label><input class="fi" id="chf-home"></div>
+  <div class="fg"><label class="fl">生活スタイル</label><textarea class="fta fta-sm" id="chf-life"></textarea></div>
+  <span class="fsec">内面</span>
+  <div class="fg"><label class="fl">性格</label><textarea class="fta fta-sm" id="chf-pers"></textarea></div>
+  <div class="frow"><div class="fg"><label class="fl">好きなもの</label><textarea class="fta fta-sm" id="chf-lk"></textarea></div><div class="fg"><label class="fl">嫌いなもの</label><textarea class="fta fta-sm" id="chf-dl"></textarea></div></div>
+  <div class="fg"><label class="fl">趣味</label><input class="fi" id="chf-hob"></div>
+  <div class="fg"><label class="fl">口調</label><input class="fi" id="chf-sp"></div>
+  <div class="fg"><label class="fl">メモ</label><textarea class="fta fta-lg" id="chf-memo"></textarea></div>
+  <span class="fsec">画像</span>
+  <div class="ipl" id="chf-ip"></div>
+  <div class="iup" id="chf-ua"><input type="file" id="chf-if" accept="image/*" multiple><div style="font-size:12px;color:var(--text2)">📷 タップして追加</div></div>
+  <button class="btn-p" id="bSC">保存する</button>
+  <button class="btn-d" id="bDC" style="display:none">🗑️ キャラクターを削除する</button>
+  <button class="btn-c" id="bCC">キャンセル</button>
+</div></div>
+
+<div class="ov" id="mR"><div class="modal">
+  <div class="mh"></div><div class="mt" id="mRT">関係性を追加</div>
+  <div class="fg"><label class="fl">相手のキャラクター</label><select class="fsel" id="rf-tgt"></select></div>
+  <div class="fg"><label class="fl">関係の種類</label><input class="fi" id="rf-type" placeholder="例：恋人、幼馴染"></div>
+  <div class="fg"><label class="fl">相手の呼び方</label><input class="fi" id="rf-call" placeholder="例：〇〇ちゃん"></div>
+  <div class="fg"><label class="fl">好感度</label><div class="hr" id="rf-hr"></div></div>
+  <div class="fg"><label class="fl">出会いのきっかけ</label><textarea class="fta fta-sm" id="rf-meet"></textarea></div>
+  <div class="fg"><label class="fl">現在の関係</label><textarea class="fta fta-sm" id="rf-cur"></textarea></div>
+  <div class="fg"><label class="fl">詳細メモ</label><textarea class="fta fta-lg" id="rf-memo"></textarea></div>
+  <button class="btn-p" id="bSR">保存する</button>
+  <button class="btn-d" id="bDR" style="display:none">🗑️ 関係性を削除する</button>
+  <button class="btn-c" id="bCR">キャンセル</button>
+</div></div>
+
+<!-- DELETE CONFIRM -->
+<div class="del-bg" id="delBg">
+  <div class="del-box">
+    <div style="font-size:40px;margin-bottom:12px">🗑️</div>
+    <div style="font-size:16px;font-weight:700;margin-bottom:8px" id="delMsg">本当に削除しますか？</div>
+    <div style="font-size:12px;color:var(--text2);margin-bottom:24px;line-height:1.7">この操作は元に戻せません</div>
+    <button class="del-yes" id="delYes">削除する</button>
+    <button class="del-no" id="delNo">キャンセル</button>
+  </div>
+</div>
+
+<!-- IMAGE VIEWER -->
+<div class="imgv" id="imgv"><img id="imgvI" src="" alt=""><button class="imgv-x" id="imgvX">✕</button></div>
+
+<script>
+// ── DB ──
+const _def = {series:[],chars:[],coups:[],worlds:{},coupWorlds:{},romance:{},qa:{},relations:[],anniversaries:[]};
+let db;
+try { db = JSON.parse(localStorage.getItem('ss4')||'{}'); ['series','chars','coups','relations','anniversaries'].forEach(k=>{if(!Array.isArray(db[k]))db[k]=[];}); ['worlds','coupWorlds','romance','qa'].forEach(k=>{if(!db[k]||typeof db[k]!='object')db[k]={};}); } catch(e){ db=JSON.parse(JSON.stringify(_def)); }
+const sv = () => localStorage.setItem('ss4', JSON.stringify(db));
+const uid = () => Date.now().toString(36)+Math.random().toString(36).slice(2,5);
+const esc = s => String(s||'').replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');
+const ini = n => (n||'?')[0];
+const abg = i => ['#B8A9D9','#F5B49A','#A8D5C2','#F0C4A0','#C4B8E8'][i%5];
+
+// ── STATE ──
+let curS=null,curCP=null,curC=null,fromCoup=false,charSort='def',activeStab='world',activeSub='coups';
+let edS=null,edCP=null,edC=null,edR=null,edA=null,edQA=null;
+let pImgs={cpf:[],chf:[]};
+let rH=0,delCb=null;
+
+// ── HELPERS ──
+const $ = id => document.getElementById(id);
+const go = id => { document.querySelectorAll('.screen').forEach(s=>s.classList.remove('active')); $('sc'+id).classList.add('active'); scrollTo(0,0); };
+const openOv = id => $(id).classList.add('open');
+const closeOv = id => $(id).classList.remove('open');
+const hH = v => Array.from({length:5},(_,i)=>`<span style="font-size:15px;color:${i<v?'#E8896A':'#ddd'}">${i<v?'♥':'♡'}</span>`).join('');
+function renderH(v,inter,id){ rH=v||0; const el=$(id); if(!el)return; el.innerHTML=''; for(let i=1;i<=5;i++){ const b=document.createElement('button'); b.className='hbtn'; b.textContent=i<=rH?'♥':'♡'; b.style.color=i<=rH?'#E8896A':'#ddd'; if(inter){const iv=i; b.onclick=()=>{rH=rH===iv?0:iv;renderH(rH,true,id);};} el.appendChild(b); } }
+function sortC(chars){ if(charSort==='name') return [...chars].sort((a,b)=>(a.name||'').localeCompare(b.name||'','ja')); if(charSort==='bd') return [...chars].sort((a,b)=>(parseInt(a.bdm)||13)*100+(parseInt(a.bdd)||0)-((parseInt(b.bdm)||13)*100+(parseInt(b.bdd)||0))); return chars; }
+function ccHTML(c,fc='false'){ const bd=c.bdm&&c.bdd?`🎂 ${c.bdm}/${c.bdd}`:''; return `<div class="char-card" data-cid="${c.id}" data-fc="${fc}">${c.images&&c.images[0]?`<div class="ci"><img src="${c.images[0]}" alt=""></div>`:`<div class="ci">${ini(c.name)}</div>`}<div style="flex:1"><div class="char-name">${esc(c.name)}</div>${c.age||bd?`<div class="char-sub">${[c.age?c.age+'歳':'',bd].filter(Boolean).join(' · ')}</div>`:''}</div><div style="color:var(--text2);font-size:16px">›</div></div>`; }
+
+// ── INIT SELECTS ──
+$('chf-bdm').innerHTML='<option value="">月</option>'+Array.from({length:12},(_,i)=>`<option value="${i+1}">${i+1}月</option>`).join('');
+$('chf-bdd').innerHTML='<option value="">日</option>'+Array.from({length:31},(_,i)=>`<option value="${i+1}">${i+1}日</option>`).join('');
+
+// ── OVERLAY CLOSE ON BG ──
+document.querySelectorAll('.ov').forEach(el=>el.addEventListener('click',e=>{ if(e.target===el) closeOv(el.id); }));
+
+// ── DELETE CONFIRM ──
+$('delNo').onclick = () => closeOv('delBg');
+$('delYes').onclick = () => { closeOv('delBg'); if(delCb){delCb();delCb=null;} };
+function askDel(msg,cb){ $('delMsg').textContent=msg||'本当に削除しますか？'; delCb=cb; $('delBg').classList.add('open'); }
+
+// ── IMAGE VIEWER ──
+$('imgvX').onclick = () => closeOv('imgv');
+$('imgv').addEventListener('click', e=>{ if(e.target===$('imgv')) closeOv('imgv'); });
+function openIV(src){ $('imgvI').src=src; openOv('imgv'); }
+
+// ── IMAGE UPLOAD ──
+function setupIU(p){ const ua=$(p+'-ua'),inp=$(p+'-if'); ua.onclick=()=>inp.click(); inp.onchange=()=>{ Array.from(inp.files).forEach(f=>{ const r=new FileReader(); r.onload=e=>{pImgs[p].push(e.target.result);renderIP(p);}; r.readAsDataURL(f); }); inp.value=''; }; }
+setupIU('cpf'); setupIU('chf');
+function renderIP(p){ $(p+'-ip').innerHTML=pImgs[p].map((s,i)=>`<div class="ipi"><img src="${s}" alt=""><button class="ipd" data-p="${p}" data-i="${i}">✕</button></div>`).join(''); }
+document.addEventListener('click',e=>{ if(e.target.classList.contains('ipd')){ const p=e.target.dataset.p,i=parseInt(e.target.dataset.i); pImgs[p].splice(i,1);renderIP(p); } });
+
+// ── SEARCH ──
+$('searchBox').oninput = function(){ const q=this.value.trim(),el=$('searchRes'); if(!q){el.style.display='none';el.innerHTML='';return;} const res=db.chars.filter(c=>c.name&&c.name.includes(q)); el.style.display=res.length?'block':'none'; el.innerHTML=res.map(c=>{ const s=db.series.find(x=>x.id===c.seriesId); return `<div class="sri" data-cid="${c.id}"><div style="font-size:10px;color:var(--text2)">${s?(s.icon?esc(s.icon)+' ':'')+esc(s.name):''}</div><div style="font-size:13px;font-weight:500">${esc(c.name)}</div></div>`; }).join(''); };
+$('searchRes').addEventListener('click',e=>{ const it=e.target.closest('.sri'); if(it){curC=it.dataset.cid;fromCoup=false;renderChar();go('Char');} });
+
+// ── SORT ──
+document.addEventListener('click',e=>{ if(e.target.classList.contains('sort-btn')){ e.target.closest('.sort-bar').querySelectorAll('.sort-btn').forEach(b=>b.classList.remove('active')); e.target.classList.add('active'); charSort=e.target.dataset.s||'def'; renderSChars();renderSCoupChars(); } });
+
+// ══════════ TOP ══════════
+$('btnAddS').onclick = openSM;
+function renderTop(){
+  $('topStats').innerHTML=`<div class="h-pill">シリーズ ${db.series.length}</div><div class="h-pill">キャラ ${db.chars.length}人</div>`;
+  const sl=$('seriesList');
+  if(!db.series.length){sl.innerHTML='<div class="empty"><div class="empty-e">📖</div><p>シリーズがないよ！<br>下のボタンで追加しよう</p></div>';return;}
+  sl.innerHTML=db.series.map((s,i)=>{ const cc=db.chars.filter(c=>c.seriesId===s.id).length; const cpc=db.coups.filter(c=>c.seriesId===s.id).length; const isCp=s.type==='coupling'; return `<div class="sc" data-sid="${s.id}"><div class="sc-stripe" style="background:${isCp?'var(--grad2)':'var(--grad)'}"></div>${s.icon?`<div class="sc-icon">${esc(s.icon)}</div>`:`<div class="sc-av" style="background:${abg(i)}">${ini(s.name)}</div>`}<div class="sc-body"><span class="sc-badge" style="${isCp?'background:var(--lav2);color:#6B5B9E':'background:var(--mint2);color:#3D8B6E'}">${isCp?'💕 カップリング':'📖 ノーマル'}</span><div class="sc-name">${esc(s.name)}</div><div class="sc-meta">${isCp?`${esc(s.cpLabel||'カップリング')} ${cpc}組 · `:''}${esc(s.cLabel||'キャラ')} ${cc}人</div></div><div style="color:var(--text2);font-size:16px">›</div></div>`; }).join('');
+}
+$('seriesList').addEventListener('click',e=>{ const c=e.target.closest('.sc'); if(c){curS=c.dataset.sid;charSort='def';activeSub='coups';renderSeries('world');go('Series');} });
+
+// ══════════ SERIES ══════════
+$('btnSBack').onclick = () => { go('Top'); renderTop(); };
+$('btnSEdit').onclick = openSEdit;
+$('sFab').onclick = () => { if(activeStab==='world') openWM('series'); else if(activeStab==='coup'){ if(activeSub==='coups') openCoupM(); else openCM(false); } else openCM(false); };
+$('sbCoups').onclick = function(){ this.classList.add('active');$('sbChars').classList.remove('active');$('subC').style.display='block';$('subCh').style.display='none';activeSub='coups'; };
+$('sbChars').onclick = function(){ this.classList.add('active');$('sbCoups').classList.remove('active');$('subC').style.display='none';$('subCh').style.display='block';activeSub='chars'; };
+$('sStabs').addEventListener('click',e=>{ const b=e.target.closest('.stab');if(!b)return; $('sStabs').querySelectorAll('.stab').forEach(x=>x.classList.remove('active'));b.classList.add('active'); ['world','coup','chars','rels'].forEach(id=>{const el=$('st-'+id);if(el)el.classList.remove('active');});$('st-'+b.dataset.tab).classList.add('active');activeStab=b.dataset.tab; });
+document.querySelectorAll('#st-coup,#st-chars').forEach(el=>el.addEventListener('click',e=>{ const c=e.target.closest('.char-card');if(c){curC=c.dataset.cid;fromCoup=false;renderChar();go('Char');} }));
+$('sCoupL').addEventListener('click',e=>{ const c=e.target.closest('.cc');if(c){curCP=c.dataset.cpid;renderCoup();go('Coup');} });
+
+function renderSeries(tab){
+  const s=db.series.find(x=>x.id===curS);if(!s)return;
+  $('sNavT').textContent=(s.icon?s.icon+' ':'')+s.name;
+  const isCp=s.type==='coupling';
+  const tabs=isCp?[{id:'world',l:'世界観'},{id:'coup',l:s.cpLabel||'カップリング'}]:[{id:'world',l:'世界観'},{id:'chars',l:s.cLabel||'キャラ'},{id:'rels',l:'関係性'}];
+  $('sStabs').innerHTML=tabs.map(t=>`<button class="stab${t.id===tab?' active':''}" data-tab="${t.id}">${esc(t.l)}</button>`).join('');
+  if(isCp) $('sbChars').textContent=s.cLabel||'キャラ';
+  ['world','coup','chars','rels'].forEach(id=>{const el=$('st-'+id);if(el)el.classList.remove('active');});
+  $('st-'+(tab||'world')).classList.add('active'); activeStab=tab||'world';
+  renderSWorld(); if(isCp){renderSCoups();renderSCoupChars();}else{renderSChars();renderSRels();}
+}
+function renderSWorld(){ const w=db.worlds[curS]||{}; $('sWorldC').innerHTML=`<div class="wnote"><div class="wnote-t">背景・時間軸</div>${w.bg?`<div class="wnote-tx">${esc(w.bg)}</div>`:'<div class="wnote-em">未入力</div>'}</div><div class="wnote"><div class="wnote-t">その他設定</div>${w.other?`<div class="wnote-tx">${esc(w.other)}</div>`:'<div class="wnote-em">未入力</div>'}</div><button class="btn-p" id="btnEW">✏️ 世界観を編集</button>`; $('btnEW').onclick=()=>openWM('series'); }
+function renderSCoups(){ const cs=db.coups.filter(c=>c.seriesId===curS); $('sCoupL').innerHTML=cs.length?cs.map(cp=>{const ms=db.chars.filter(c=>c.coupId===cp.id);const cross=ms.length>=2?`${esc(ms[0].name)} × ${esc(ms[1].name)}`:ms.map(m=>esc(m.name)).join(' × ');return`<div class="cc" data-cpid="${cp.id}">${cp.icon?`<div style="font-size:22px;margin-bottom:6px">${esc(cp.icon)}</div>`:''}<div class="cc-name">${esc(cp.name)}</div><div class="cc-cross">${cross}</div></div>`}).join(''):'<div class="empty"><div class="empty-e">🎀</div><p>カップリングがないよ！</p></div>'; }
+function renderSCoupChars(){ $('sCoupChL').innerHTML=sortC(db.chars.filter(c=>c.seriesId===curS)).map(c=>ccHTML(c)).join('')||'<div class="empty"><div class="empty-e">👤</div><p>キャラがいないよ！</p></div>'; }
+function renderSChars(){ $('sCharL').innerHTML=sortC(db.chars.filter(c=>c.seriesId===curS)).map(c=>ccHTML(c)).join('')||'<div class="empty"><div class="empty-e">👤</div><p>キャラクターがいないよ！<br>右下の ＋ で追加</p></div>'; }
+function renderSRels(){ const cs=db.chars.filter(c=>c.seriesId===curS); $('sRelC').innerHTML=cs.map(c=>{const rels=db.relations.filter(r=>r.fromId===c.id);if(!rels.length)return'';return`<div class="ro-card"><div class="ro-from">${esc(c.name)}</div>${rels.map(r=>{const t=db.chars.find(x=>x.id===r.toId);if(!t)return'';return`<div class="rc" style="cursor:default;margin-bottom:8px"><div class="rt"><div class="ri">${t.images&&t.images[0]?`<img src="${t.images[0]}" alt="">`:ini(t.name)}</div><div class="rinfo"><div class="rn">${esc(t.name)}</div>${r.type?`<div class="rtype">${esc(r.type)}</div>`:''}</div></div><div class="rh">${hH(r.hearts||0)}</div></div>`;}).join('')}</div>`;}).filter(Boolean).join('')||'<div class="empty"><div class="empty-e">🤝</div><p>関係性がまだないよ！</p></div>'; }
+
+// ══════════ COUP ══════════
+$('btnCBack').onclick = () => { go('Series'); renderSeries(activeStab); };
+$('btnCEdit').onclick = openCoupEdit;
+$('cFab').onclick = () => { const a=$('cStabs').querySelector('.stab.active'); if(a&&a.dataset.tab==='anni') openAM(null); else if(a&&a.dataset.tab==='info') openRomM(); else openCoupEdit(); };
+$('cStabs').addEventListener('click',e=>{ const b=e.target.closest('.stab');if(!b)return; $('cStabs').querySelectorAll('.stab').forEach(x=>x.classList.remove('active'));b.classList.add('active'); document.querySelectorAll('#scCoup .tp').forEach(t=>t.classList.remove('active'));$('ct-'+b.dataset.tab).classList.add('active'); });
+
+function renderCoup(){
+  const cp=db.coups.find(x=>x.id===curCP);if(!cp)return;
+  const ms=db.chars.filter(c=>c.coupId===curCP);
+  const cross=ms.length>=2?`${esc(ms[0].name)} × ${esc(ms[1].name)}`:ms.map(m=>esc(m.name)).join(' × ');
+  $('cNavT').textContent=cp.name;
+  $('coupHdr').innerHTML=`<div class="ch-blob ch-b1"></div><div class="ch-blob ch-b2"></div><div class="ch-in"><div class="ch-badge">💕 カップリング詳細</div><div class="ch-name">${cp.icon?esc(cp.icon)+' ':''}${esc(cp.name)}</div><div class="ch-cross">${cross}</div><div class="ch-chips">${ms.map(m=>`<div class="ch-chip" data-cid="${m.id}">${esc(m.name)}</div>`).join('')}</div></div>`;
+  $('cStabs').querySelectorAll('.stab').forEach((b,i)=>b.classList.toggle('active',i===0));
+  document.querySelectorAll('#scCoup .tp').forEach((t,i)=>t.classList.toggle('active',i===0));
+  renderCMem();renderCWorld();renderCInfo();renderCAnni();renderCImg();
+}
+$('coupHdr').addEventListener('click',e=>{ const c=e.target.closest('.ch-chip');if(c){curC=c.dataset.cid;fromCoup=true;renderChar();go('Char');} });
+
+function renderCMem(){
+  const ms=db.chars.filter(c=>c.coupId===curCP); let html='';
+  const wH=ms.filter(m=>parseInt(m.height));
+  if(wH.length>=2){const mx=Math.max(...wH.map(m=>parseInt(m.height)));const df=Math.abs(parseInt(wH[0].height)-parseInt(wH[1].height));html+=`<div class="hs"><div class="hs-t">身長</div><div class="hbars">${wH.slice(0,2).map(m=>{const h=parseInt(m.height),r=h/mx;return`<div class="hbw"><div class="hbar" style="height:${Math.round(r*120)}px"></div><div class="hbar-n">${esc(m.name)}</div><div class="hbar-v">${h}cm</div></div>`;}).join('<div style="align-self:flex-end;padding-bottom:28px;color:var(--text2);font-size:18px">↔</div>')}</div><span class="hdiff">身長差 ${df}cm</span></div>`;}
+  html+=`<div class="char-list" id="cMemList">${ms.slice(0,2).map(m=>`<div class="char-card" data-cid="${m.id}" data-fc="true">${m.images&&m.images[0]?`<div class="ci"><img src="${m.images[0]}" alt=""></div>`:`<div class="ci">${ini(m.name)}</div>`}<div style="flex:1"><div class="char-name">${esc(m.name)}</div>${m.height?`<div class="char-sub">${m.height}cm</div>`:''}</div><div style="color:var(--text2);font-size:16px">›</div></div>`).join('')}</div>`;
+  $('ct-members').innerHTML=html;
+  document.getElementById('cMemList').addEventListener('click',e=>{ const c=e.target.closest('.char-card');if(c){curC=c.dataset.cid;fromCoup=true;renderChar();go('Char');} });
+}
+function renderCWorld(){ const cw=db.coupWorlds[curCP]||{}; $('ct-world').innerHTML=`<div class="wnote"><div class="wnote-t">背景・時間軸</div>${cw.bg?`<div class="wnote-tx">${esc(cw.bg)}</div>`:'<div class="wnote-em">未入力</div>'}</div><div class="wnote"><div class="wnote-t">その他設定</div>${cw.other?`<div class="wnote-tx">${esc(cw.other)}</div>`:'<div class="wnote-em">未入力</div>'}</div><button class="btn-p" id="btnECW">✏️ 世界観を編集</button>`; $('btnECW').onclick=()=>openWM('coup'); }
+function renderCInfo(){
+  const cp=db.coups.find(x=>x.id===curCP);if(!cp)return;
+  const rom=db.romance[curCP]||{};const qas=db.qa[curCP]||[];
+  const ir=(l,v)=>v?`<div class="ir"><div class="il">${l}</div><div class="iv2">${esc(v)}</div></div>`:'';
+  const dirS=rom.status==='片思い'&&rom.direction?` (${esc(rom.direction)})`:'';
+  $('ct-info').innerHTML=`<div class="rs"><div class="rs-t">💕 ロマンス設定</div>${ir('ステータス',(rom.status||'')+(rom.status==='片思い'?dirS:''))}${ir('距離感',rom.distance)}${ir('関係性の詳細',rom.detail)}${ir('告白したのは？',rom.confession)}${ir('初めて意識したのは',rom.first)}${ir('2人だけの秘密',rom.secret)}${ir('メモ',rom.memo)}${!rom.status&&!rom.distance?'<div class="wnote-em">未入力</div>':''}<button class="btn-s" id="btnER">✏️ ロマンス設定を編集</button></div><div class="qs"><div class="rs-t">📝 質問コーナー</div>${qas.map((q,i)=>`<div class="qi" data-qi="${i}"><div class="qq">${esc(q.q)}</div><div class="qa">${esc(q.a)||'<span style="color:#ccc">未回答</span>'}</div></div>`).join('')}${!qas.length?'<div class="wnote-em" style="margin-bottom:8px">質問がないよ！</div>':''}<button class="qa-add" id="btnAQA">＋ 質問を追加</button></div>`;
+  $('btnER').onclick=openRomM;
+  $('btnAQA').onclick=()=>openQAM(null);
+  $('ct-info').querySelectorAll('.qi').forEach(el=>el.addEventListener('click',()=>openQAM(parseInt(el.dataset.qi))));
+}
+function renderCAnni(){ const as=db.anniversaries.filter(a=>a.coupId===curCP);const today=new Date();today.setHours(0,0,0,0); $('ct-anni').innerHTML=(as.map(a=>{const d=new Date(a.date);d.setHours(0,0,0,0);const df=Math.floor((today-d)/86400000);return`<div class="ac" data-aid="${a.id}"><div class="ai">${a.icon?esc(a.icon):'📅'}</div><div class="ab"><div class="an">${esc(a.name)}</div><div class="ad">${a.date||''}</div></div><div><div class="adays">${df>=0?df:''}</div><div class="albl">${df>=0?'日経過':''}</div></div></div>`;}).join('')||'<div class="empty"><div class="empty-e">📅</div><p>記念日がないよ！</p></div>')+`<button class="btn-s" id="btnAA">＋ 記念日を追加</button>`;
+  $('btnAA').onclick=()=>openAM(null);
+  $('ct-anni').querySelectorAll('.ac').forEach(el=>el.addEventListener('click',()=>openAM(el.dataset.aid)));
+}
+function renderCImg(){ const cp=db.coups.find(x=>x.id===curCP);if(!cp)return;const imgs=cp.images||[]; $('ct-images').innerHTML=imgs.length?`<div class="ig">${imgs.map(s=>`<div class="it" data-s="${s}"><img src="${s}" alt=""></div>`).join('')}</div>`:'<div class="empty"><div class="empty-e">🖼</div><p>画像がないよ！</p></div>'; $('ct-images').querySelectorAll('.it').forEach(el=>el.addEventListener('click',()=>openIV(el.dataset.s))); }
+
+// ══════════ CHAR ══════════
+$('btnChBack').onclick = () => { fromCoup?go('Coup'):go('Series'); };
+$('btnChEdit').onclick = openCEdit;
+$('chFab').onclick = () => { const a=document.querySelector('.ctab.active');if(a&&a.dataset.tab==='rel') openRM(null);else openCEdit(); };
+$('charTabs').addEventListener('click',e=>{ const b=e.target.closest('.ctab');if(!b)return; document.querySelectorAll('.ctab').forEach(x=>x.classList.remove('active'));b.classList.add('active'); document.querySelectorAll('.ctp').forEach(p=>p.classList.remove('active'));$('cht-'+b.dataset.tab).classList.add('active'); });
+
+function renderChar(){
+  const c=db.chars.find(x=>x.id===curC);if(!c)return;
+  const s=db.series.find(x=>x.id===c.seriesId);
+  const bd=c.bdm&&c.bdd?`${c.bdm}月${c.bdd}日`:'';
+  let hInfo=''; if(c.height){const p2=c.coupId?db.chars.find(x=>x.coupId===c.coupId&&x.id!==c.id&&parseInt(x.height)):null;hInfo=`<div class="ch-pill">🧍 ${c.height}cm${p2?` (${esc(p2.name)}との差：${Math.abs(parseInt(c.height)-parseInt(p2.height))}cm)`:''}</div>`;}
+  let cpLink=''; if(c.coupId){const cp=db.coups.find(x=>x.id===c.coupId);if(cp)cpLink=`<div class="ch-pill" id="chCpLink" data-cpid="${cp.id}">💕 ${esc(cp.name)} →</div>`;}
+  $('charHdr').innerHTML=`<div class="chdr-b chdr-b1"></div><div class="chdr-in"><div class="cbig">${c.images&&c.images[0]?`<img src="${c.images[0]}" alt="">`:ini(c.name)}</div><div class="ch-cname">${esc(c.name)}</div>${c.kana?`<div class="ch-kana">${esc(c.kana)}</div>`:''} ${s?`<div class="ch-series">${s.icon?esc(s.icon)+' ':''}${esc(s.name)}</div>`:''} ${hInfo}${cpLink}</div>`;
+  document.querySelectorAll('.ctab').forEach((b,i)=>b.classList.toggle('active',i===0));
+  document.querySelectorAll('.ctp').forEach((p,i)=>p.classList.toggle('active',i===0));
+  const pf=fs=>`<div class="pgrid">${fs.map(f=>`<div class="pf${f.f?' full':''}"><div class="pf-l">${f.l}</div>${f.v?`<div class="pf-v">${esc(f.v)}</div>`:'<div class="pf-e">-</div>'}</div>`).join('')}</div>`;
+  $('cht-basic').innerHTML=pf([{l:'名前',v:c.name},{l:'よみ',v:c.kana},{l:'年齢',v:c.age?c.age+'歳':''},{l:'誕生日',v:bd},{l:'性別',v:c.gender},{l:'血液型',v:c.blood},{l:'身長',v:c.height?c.height+'cm':''},{l:'体重',v:c.weight},{l:'外見',v:c.appear,f:true}]);
+  $('cht-life').innerHTML=pf([{l:'職業',v:c.job},{l:'職場・所属',v:c.wp},{l:'住居',v:c.home,f:true},{l:'生活スタイル',v:c.life,f:true}]);
+  $('cht-inner').innerHTML=pf([{l:'性格',v:c.pers,f:true},{l:'好きなもの',v:c.likes},{l:'嫌いなもの',v:c.dislikes},{l:'趣味',v:c.hobby},{l:'口調',v:c.speech}]);
+  renderCRel();
+  $('cht-images').innerHTML=c.images&&c.images.length?`<div class="ig">${c.images.map(s=>`<div class="it" data-s="${s}"><img src="${s}" alt=""></div>`).join('')}</div>`:'<div class="empty"><div class="empty-e">🖼</div><p>画像がないよ！</p></div>';
+  $('cht-memo').innerHTML=`<div class="wnote"><div class="wnote-t">メモ</div>${c.memo?`<div class="wnote-tx">${esc(c.memo)}</div>`:'<div class="wnote-em">未入力</div>'}</div>`;
+  $('cht-images').querySelectorAll('.it').forEach(el=>el.addEventListener('click',()=>openIV(el.dataset.s)));
+  const lk=$('chCpLink'); if(lk) lk.onclick=()=>{curCP=lk.dataset.cpid;renderCoup();go('Coup');};
+}
+function renderCRel(){
+  const c=db.chars.find(x=>x.id===curC);if(!c)return;
+  const rels=db.relations.filter(r=>r.fromId===curC);
+  const cpRels=rels.filter(r=>{const t=db.chars.find(x=>x.id===r.toId);return t&&c.coupId&&t.coupId===c.coupId;});
+  const otRels=rels.filter(r=>!cpRels.includes(r));
+  const rc=r=>{const t=db.chars.find(x=>x.id===r.toId);if(!t)return'';return`<div class="rc" data-rid="${r.id}"><div class="rt"><div class="ri">${t.images&&t.images[0]?`<img src="${t.images[0]}" alt="">`:ini(t.name)}</div><div class="rinfo"><div class="rn">${esc(t.name)}</div>${r.type?`<div class="rtype">${esc(r.type)}</div>`:''} ${r.call?`<div class="rcall">呼び方：${esc(r.call)}</div>`:''}</div></div><div class="rh">${hH(r.hearts||0)}</div>${r.current?`<div class="rmemo">${esc(r.current)}</div>`:''}</div>`;};
+  let html='<div class="rl">';
+  if(!rels.length) html+='<div class="empty"><div class="empty-e">🤝</div><p>関係性がないよ！<br>右下の ＋ で追加</p></div>';
+  else{ if(cpRels.length) html+=`<div style="font-size:10px;font-weight:700;color:var(--text2);letter-spacing:1px;text-transform:uppercase;margin:0 0 8px">カップリングメンバー</div>${cpRels.map(rc).join('')}`; if(otRels.length) html+=`<div style="font-size:10px;font-weight:700;color:var(--text2);letter-spacing:1px;text-transform:uppercase;margin:14px 0 8px">${cpRels.length?'その他':'関係性'}</div>${otRels.map(rc).join('')}`; }
+  html+=`</div><button class="btn-s" id="btnAR" style="margin-top:10px">＋ 関係性を追加</button>`;
+  $('cht-rel').innerHTML=html;
+  $('btnAR').onclick=()=>openRM(null);
+  $('cht-rel').querySelectorAll('.rc').forEach(el=>el.addEventListener('click',()=>openRM(el.dataset.rid)));
+}
+
+// ══════════ SERIES MODAL ══════════
+$('sf-type').onchange=function(){$('sf-cpw').style.display=this.value==='coupling'?'block':'none';};
+$('bSS').onclick=saveSeries; $('bCS').onclick=()=>closeOv('mS');
+$('bDS').onclick=()=>askDel('シリーズを削除しますか？',delSeries);
+function openSM(){ edS=null; $('mST').textContent='シリーズを追加'; ['sf-name','sf-icon','sf-clabel','sf-cplabel','sf-bg','sf-other'].forEach(id=>$(id).value=''); $('sf-type').value='normal'; $('sf-cpw').style.display='none'; $('bDS').style.display='none'; openOv('mS'); }
+function openSEdit(){ const s=db.series.find(x=>x.id===curS);if(!s)return; edS=s.id; $('mST').textContent='シリーズを編集'; $('sf-name').value=s.name||''; $('sf-icon').value=s.icon||''; $('sf-clabel').value=s.cLabel||''; $('sf-cplabel').value=s.cpLabel||''; $('sf-type').value=s.type||'normal'; $('sf-cpw').style.display=s.type==='coupling'?'block':'none'; const w=db.worlds[curS]||{}; $('sf-bg').value=w.bg||''; $('sf-other').value=w.other||''; $('bDS').style.display='block'; openOv('mS'); }
+function saveSeries(){ const name=$('sf-name').value.trim();if(!name){alert('シリーズ名を入力してね！');return;} const data={id:edS||uid(),name,icon:$('sf-icon').value.trim()||'',cLabel:$('sf-clabel').value.trim()||'キャラ',cpLabel:$('sf-cplabel').value.trim()||'カップリング',type:$('sf-type').value}; if(edS) db.series=db.series.map(s=>s.id===edS?{...s,...data}:s); else db.series.push(data); db.worlds[data.id]={bg:$('sf-bg').value,other:$('sf-other').value}; sv();closeOv('mS'); if(edS) renderSeries(activeStab); else renderTop(); }
+function delSeries(){ db.series=db.series.filter(s=>s.id!==edS);db.chars=db.chars.filter(c=>c.seriesId!==edS);db.coups=db.coups.filter(c=>c.seriesId!==edS);delete db.worlds[edS]; sv();closeOv('mS');go('Top');renderTop(); }
+
+// ══════════ WORLD MODAL ══════════
+$('bSW').onclick=saveWorld; $('bCW').onclick=()=>closeOv('mW');
+function openWM(mode){ const isC=mode==='coup';const w=isC?(db.coupWorlds[curCP]||{}):(db.worlds[curS]||{}); $('mWT').textContent=isC?'世界観を編集（カップリング）':'世界観を編集'; $('wf-bg').value=w.bg||''; $('wf-other').value=w.other||''; $('mW').dataset.mode=mode; openOv('mW'); }
+function saveWorld(){ const mode=$('mW').dataset.mode||'series';const data={bg:$('wf-bg').value,other:$('wf-other').value}; if(mode==='coup'){db.coupWorlds[curCP]=data;sv();closeOv('mW');renderCWorld();}else{db.worlds[curS]=data;sv();closeOv('mW');renderSWorld();} }
+
+// ══════════ COUP MODAL ══════════
+function updCpfDir(){ const v=$('cpf-st').value,w=$('cpf-dw'); if(v==='片思い'){const n1=$('cpf-m1').value.trim()||'名前1',n2=$('cpf-m2').value.trim()||'名前2'; $('cpf-dir').innerHTML=`<option value="">選択...</option><option>${esc(n1)} → ${esc(n2)}</option><option>${esc(n2)} → ${esc(n1)}</option>`;w.style.display='block';}else w.style.display='none'; }
+$('cpf-st').onchange=updCpfDir; $('cpf-m1').oninput=updCpfDir; $('cpf-m2').oninput=updCpfDir;
+$('bSCP').onclick=saveCoup; $('bCCP').onclick=()=>closeOv('mCP');
+$('bDCP').onclick=()=>askDel('カップリングを削除しますか？',delCoup);
+function openCoupM(){ edCP=null;$('mCPT').textContent='カップリングを追加';['cpf-name','cpf-icon','cpf-m1','cpf-m2','cpf-det'].forEach(id=>$(id).value='');$('cpf-st').value='';$('cpf-dist').value='';$('cpf-dw').style.display='none';pImgs.cpf=[];renderIP('cpf');$('bDCP').style.display='none';openOv('mCP'); }
+function openCoupEdit(){ const cp=db.coups.find(x=>x.id===curCP);if(!cp)return;edCP=cp.id;$('mCPT').textContent='カップリングを編集';$('cpf-name').value=cp.name||'';$('cpf-icon').value=cp.icon||'';$('cpf-m1').value='';$('cpf-m2').value='';$('cpf-det').value=cp.detail||'';const rom=db.romance[curCP]||{};$('cpf-st').value=rom.status||'';$('cpf-dist').value=rom.distance||'';if(rom.status==='片思い'){const ns=db.chars.filter(c=>c.coupId===curCP).map(c=>c.name);const n1=ns[0]||'名前1',n2=ns[1]||'名前2';$('cpf-dir').innerHTML=`<option value="">選択...</option><option>${esc(n1)} → ${esc(n2)}</option><option>${esc(n2)} → ${esc(n1)}</option>`;$('cpf-dir').value=rom.direction||'';$('cpf-dw').style.display='block';}else $('cpf-dw').style.display='none';pImgs.cpf=[...(cp.images||[])];renderIP('cpf');$('bDCP').style.display='block';openOv('mCP'); }
+function saveCoup(){ const name=$('cpf-name').value.trim();if(!name){alert('カップリング名を入力してね！');return;} const cpId=edCP||uid();const data={id:cpId,seriesId:curS,name,icon:$('cpf-icon').value.trim()||'',detail:$('cpf-det').value,images:[...pImgs.cpf]};const rom={status:$('cpf-st').value,distance:$('cpf-dist').value,direction:$('cpf-dw').style.display!=='none'?$('cpf-dir').value:''}; if(edCP) db.coups=db.coups.map(c=>c.id===edCP?data:c); else{db.coups.push(data);const m1=$('cpf-m1').value.trim(),m2=$('cpf-m2').value.trim();if(m1)db.chars.push({id:uid(),seriesId:curS,coupId:cpId,name:m1,images:[]});if(m2)db.chars.push({id:uid(),seriesId:curS,coupId:cpId,name:m2,images:[]});} db.romance[cpId]={...(db.romance[cpId]||{}),...rom};sv();closeOv('mCP');if(edCP)renderCoup();else renderSeries(activeStab); }
+function delCoup(){ db.coups=db.coups.filter(c=>c.id!==edCP);sv();closeOv('mCP');go('Series');renderSeries(activeStab); }
+
+// ══════════ ROMANCE MODAL ══════════
+function updRomDir(){ const v=$('rom-st').value,w=$('rom-dw');if(v==='片思い'){const ns=db.chars.filter(c=>c.coupId===curCP).map(c=>c.name);const n1=ns[0]||'名前1',n2=ns[1]||'名前2';$('rom-dir').innerHTML=`<option value="">選択...</option><option>${esc(n1)} → ${esc(n2)}</option><option>${esc(n2)} → ${esc(n1)}</option>`;w.style.display='block';}else w.style.display='none'; }
+$('rom-st').onchange=updRomDir;
+$('bSROM').onclick=saveRom; $('bCROM').onclick=()=>closeOv('mROM');
+function openRomM(){ const rom=db.romance[curCP]||{};$('rom-st').value=rom.status||'';$('rom-dist').value=rom.distance||'';$('rom-det').value=rom.detail||'';$('rom-conf').value=rom.confession||'';$('rom-first').value=rom.first||'';$('rom-sec').value=rom.secret||'';$('rom-memo').value=rom.memo||'';if(rom.status==='片思い'){updRomDir();$('rom-dir').value=rom.direction||'';}else $('rom-dw').style.display='none';openOv('mROM'); }
+function saveRom(){ const s=$('rom-st').value;const dir=$('rom-dw').style.display!=='none'?$('rom-dir').value:'';db.romance[curCP]={...(db.romance[curCP]||{}),status:s,direction:dir,distance:$('rom-dist').value,detail:$('rom-det').value,confession:$('rom-conf').value,first:$('rom-first').value,secret:$('rom-sec').value,memo:$('rom-memo').value};sv();closeOv('mROM');renderCInfo(); }
+
+// ══════════ QA MODAL ══════════
+$('bSQA').onclick=saveQA; $('bCQA').onclick=()=>closeOv('mQA');
+$('bDQA').onclick=()=>askDel('質問を削除しますか？',delQA);
+function openQAM(idx){ edQA=idx;const qas=db.qa[curCP]||[];const q=idx!==null?qas[idx]:null;$('mQAT').textContent=q?'質問を編集':'質問を追加';$('qa-q').value=q?q.q||'':'';$('qa-a').value=q?q.a||'':'';$('bDQA').style.display=q?'block':'none';openOv('mQA'); }
+function saveQA(){ const q=$('qa-q').value.trim();if(!q){alert('質問を入力してね！');return;} if(!db.qa[curCP])db.qa[curCP]=[];const item={q,a:$('qa-a').value};if(edQA!==null)db.qa[curCP][edQA]=item;else db.qa[curCP].push(item);sv();closeOv('mQA');renderCInfo(); }
+function delQA(){ if(edQA!==null)db.qa[curCP].splice(edQA,1);sv();closeOv('mQA');renderCInfo(); }
+
+// ══════════ ANNI MODAL ══════════
+$('bSA').onclick=saveAnni; $('bCA').onclick=()=>closeOv('mA');
+$('bDA').onclick=()=>askDel('記念日を削除しますか？',delAnni);
+function openAM(id){ edA=id;const a=id?db.anniversaries.find(x=>x.id===id):null;$('mAT').textContent=a?'記念日を編集':'記念日を追加';$('af-name').value=a?a.name||'':'';$('af-icon').value=a?a.icon||'':'';$('af-date').value=a?a.date||'':'';$('bDA').style.display=a?'block':'none';openOv('mA'); }
+function saveAnni(){ const name=$('af-name').value.trim();if(!name){alert('名前を入力してね！');return;} const data={id:edA||uid(),coupId:curCP,name,icon:$('af-icon').value||'',date:$('af-date').value};if(edA)db.anniversaries=db.anniversaries.map(a=>a.id===edA?data:a);else db.anniversaries.push(data);sv();closeOv('mA');renderCAnni(); }
+function delAnni(){ db.anniversaries=db.anniversaries.filter(a=>a.id!==edA);sv();closeOv('mA');renderCAnni(); }
+
+// ══════════ CHAR MODAL ══════════
+$('bSC').onclick=saveChar; $('bCC').onclick=()=>closeOv('mC');
+$('bDC').onclick=()=>askDel('キャラクターを削除しますか？',delChar);
+function openCM(fc){ edC=null;$('mCT').textContent='キャラクターを追加';['chf-name','chf-kana','chf-age','chf-gender','chf-ht','chf-wt','chf-app','chf-job','chf-wp','chf-home','chf-life','chf-pers','chf-lk','chf-dl','chf-hob','chf-sp','chf-memo'].forEach(id=>$(id).value='');$('chf-blood').value='';$('chf-bdm').value='';$('chf-bdd').value='';pImgs.chf=[];renderIP('chf');$('bDC').style.display='none';$('mC').dataset.fc=fc?'1':'0';openOv('mC'); }
+function openCEdit(){ const c=db.chars.find(x=>x.id===curC);if(!c)return;edC=c.id;$('mCT').textContent='キャラクターを編集';const m={'chf-name':c.name,'chf-kana':c.kana,'chf-age':c.age,'chf-gender':c.gender,'chf-ht':c.height,'chf-wt':c.weight,'chf-app':c.appear,'chf-job':c.job,'chf-wp':c.wp,'chf-home':c.home,'chf-life':c.life,'chf-pers':c.pers,'chf-lk':c.likes,'chf-dl':c.dislikes,'chf-hob':c.hobby,'chf-sp':c.speech,'chf-memo':c.memo};Object.entries(m).forEach(([id,v])=>$(id).value=v||'');$('chf-blood').value=c.blood||'';$('chf-bdm').value=c.bdm||'';$('chf-bdd').value=c.bdd||'';pImgs.chf=[...(c.images||[])];renderIP('chf');$('bDC').style.display='block';openOv('mC'); }
+function saveChar(){ const name=$('chf-name').value.trim();if(!name){alert('名前を入力してね！');return;} const fc=$('mC').dataset.fc==='1';const old=edC?db.chars.find(c=>c.id===edC):null;const data={id:edC||uid(),seriesId:curS,coupId:fc?curCP:(old?old.coupId:null),name,kana:$('chf-kana').value,age:$('chf-age').value,bdm:$('chf-bdm').value,bdd:$('chf-bdd').value,gender:$('chf-gender').value,blood:$('chf-blood').value,height:$('chf-ht').value,weight:$('chf-wt').value,appear:$('chf-app').value,job:$('chf-job').value,wp:$('chf-wp').value,home:$('chf-home').value,life:$('chf-life').value,pers:$('chf-pers').value,likes:$('chf-lk').value,dislikes:$('chf-dl').value,hobby:$('chf-hob').value,speech:$('chf-sp').value,memo:$('chf-memo').value,images:[...pImgs.chf]};if(edC)db.chars=db.chars.map(c=>c.id===edC?data:c);else db.chars.push(data);sv();closeOv('mC');if(edC)renderChar();else if(fc)renderCoup();else renderSeries(activeStab); }
+function delChar(){ db.chars=db.chars.filter(c=>c.id!==edC);db.relations=db.relations.filter(r=>r.fromId!==edC&&r.toId!==edC);sv();closeOv('mC');if(fromCoup){go('Coup');renderCoup();}else{go('Series');renderSeries(activeStab);} }
+
+// ══════════ REL MODAL ══════════
+$('bSR').onclick=saveRel; $('bCR').onclick=()=>closeOv('mR');
+$('bDR').onclick=()=>askDel('関係性を削除しますか？',delRel);
+function openRM(id){ edR=id;const c=db.chars.find(x=>x.id===curC);const sameS=db.chars.filter(x=>x.seriesId===curS&&x.id!==curC);const cpRs=sameS.filter(x=>x.coupId&&c&&x.coupId===c.coupId);const otRs=sameS.filter(x=>!cpRs.includes(x));let opts='';if(cpRs.length)opts+=`<optgroup label="カップリングメンバー">${cpRs.map(x=>`<option value="${x.id}">${esc(x.name)}</option>`).join('')}</optgroup>`;if(otRs.length)opts+=`<optgroup label="その他">${otRs.map(x=>`<option value="${x.id}">${esc(x.name)}</option>`).join('')}</optgroup>`;$('rf-tgt').innerHTML=opts||'<option value="">（キャラがいないよ）</option>';const r=id?db.relations.find(x=>x.id===id):null;$('mRT').textContent=r?'関係性を編集':'関係性を追加';['rf-type','rf-call','rf-meet','rf-cur','rf-memo'].forEach(i=>$(i).value=r?r[i.replace('rf-','cur'===i.replace('rf-','')?'current':i.replace('rf-',''))]||'':'');if(r)$('rf-tgt').value=r.toId;renderH(r?r.hearts||0:0,true,'rf-hr');$('bDR').style.display=r?'block':'none';openOv('mR'); }
+function saveRel(){ const toId=$('rf-tgt').value;if(!toId){alert('相手を選んでね！');return;} const data={id:edR||uid(),fromId:curC,toId,type:$('rf-type').value,call:$('rf-call').value,hearts:rH,meet:$('rf-meet').value,current:$('rf-cur').value,memo:$('rf-memo').value};if(edR)db.relations=db.relations.map(r=>r.id===edR?data:r);else db.relations.push(data);sv();closeOv('mR');renderCRel(); }
+function delRel(){ db.relations=db.relations.filter(r=>r.id!==edR);sv();closeOv('mR');renderCRel(); }
+
+renderTop();
+</script></body></html>

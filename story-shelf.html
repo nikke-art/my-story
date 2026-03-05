@@ -380,7 +380,7 @@ body{font-family:'Zen Maru Gothic',sans-serif;background:var(--bg);color:var(--t
   <div class="fg"><label class="fl">相手の呼び方</label><input class="fi" id="rf-call" placeholder="例：〇〇ちゃん"></div>
   <div class="fg"><label class="fl">好感度</label><div class="hr" id="rf-hr"></div></div>
   <div class="fg"><label class="fl">出会いのきっかけ</label><textarea class="fta fta-sm" id="rf-meet"></textarea></div>
-  <div class="fg"><label class="fl">現在の関係</label><textarea class="fta fta-sm" id="rf-cur"></textarea></div>
+  <div class="fg"><label class="fl">相手への印象・感情</label><textarea class="fta fta-sm" id="rf-cur"></textarea></div>
   <div class="fg"><label class="fl">詳細メモ</label><textarea class="fta fta-lg" id="rf-memo"></textarea></div>
   <button class="btn-p" id="bSR">保存する</button>
   <button class="btn-d" id="bDR" style="display:none">🗑️ 関係性を削除する</button>
@@ -516,7 +516,7 @@ $('coupHdr').addEventListener('click',e=>{ const c=e.target.closest('.ch-chip');
 function renderCMem(){
   const ms=db.chars.filter(c=>c.coupId===curCP); let html='';
   const wH=ms.filter(m=>parseInt(m.height));
-  if(wH.length>=2){const mx=Math.max(...wH.map(m=>parseInt(m.height)));const df=Math.abs(parseInt(wH[0].height)-parseInt(wH[1].height));html+=`<div class="hs"><div class="hs-t">身長</div><div class="hbars">${wH.slice(0,2).map(m=>{const h=parseInt(m.height),r=h/mx;return`<div class="hbw"><div class="hbar" style="height:${Math.round(r*120)}px"></div><div class="hbar-n">${esc(m.name)}</div><div class="hbar-v">${h}cm</div></div>`;}).join('<div style="align-self:flex-end;padding-bottom:28px;color:var(--text2);font-size:18px">↔</div>')}</div><span class="hdiff">身長差 ${df}cm</span></div>`;}
+
   html+=`<div class="char-list" id="cMemList">${ms.slice(0,2).map(m=>`<div class="char-card" data-cid="${m.id}" data-fc="true">${m.images&&m.images[0]?`<div class="ci"><img src="${m.images[0]}" alt=""></div>`:`<div class="ci">${ini(m.name)}</div>`}<div style="flex:1"><div class="char-name">${esc(m.name)}</div>${m.height?`<div class="char-sub">${m.height}cm</div>`:''}</div><div style="color:var(--text2);font-size:16px">›</div></div>`).join('')}</div>`;
   $('ct-members').innerHTML=html;
   document.getElementById('cMemList').addEventListener('click',e=>{ const c=e.target.closest('.char-card');if(c){curC=c.dataset.cid;fromCoup=true;renderChar();go('Char');} });
@@ -527,7 +527,8 @@ function renderCInfo(){
   const rom=db.romance[curCP]||{};const qas=db.qa[curCP]||[];
   const ir=(l,v)=>v?`<div class="ir"><div class="il">${l}</div><div class="iv2">${esc(v)}</div></div>`:'';
   const dirS=rom.status==='片思い'&&rom.direction?` (${esc(rom.direction)})`:'';
-  $('ct-info').innerHTML=`<div class="rs"><div class="rs-t">💕 ロマンス設定</div>${ir('ステータス',(rom.status||'')+(rom.status==='片思い'?dirS:''))}${ir('距離感',rom.distance)}${ir('関係性の詳細',rom.detail)}${ir('告白したのは？',rom.confession)}${ir('初めて意識したのは',rom.first)}${ir('2人だけの秘密',rom.secret)}${ir('メモ',rom.memo)}${!rom.status&&!rom.distance?'<div class="wnote-em">未入力</div>':''}<button class="btn-s" id="btnER">✏️ ロマンス設定を編集</button></div><div class="qs"><div class="rs-t">📝 質問コーナー</div>${qas.map((q,i)=>`<div class="qi" data-qi="${i}"><div class="qq">${esc(q.q)}</div><div class="qa">${esc(q.a)||'<span style="color:#ccc">未回答</span>'}</div></div>`).join('')}${!qas.length?'<div class="wnote-em" style="margin-bottom:8px">質問がないよ！</div>':''}<button class="qa-add" id="btnAQA">＋ 質問を追加</button></div>`;
+  const _ms2=db.chars.filter(c=>c.coupId===curCP);const _wH=_ms2.filter(m=>parseInt(m.height));let _hsHtml='';if(_wH.length>=2){const _mx=Math.max(..._wH.map(m=>parseInt(m.height)));const _df=Math.abs(parseInt(_wH[0].height)-parseInt(_wH[1].height));_hsHtml=`<div class="hs"><div class="hs-t">身長</div><div class="hbars">${_wH.slice(0,2).map(m=>{const h=parseInt(m.height),r=h/_mx;return`<div class="hbw"><div class="hbar" style="height:${Math.round(r*120)}px"></div><div class="hbar-n">${esc(m.name)}</div><div class="hbar-v">${h}cm</div></div>`;}).join('<div style="align-self:flex-end;padding-bottom:28px;color:var(--text2);font-size:18px">↔</div>')}</div><span class="hdiff">身長差 ${_df}cm</span></div>`;}
+  $('ct-info').innerHTML=`<div class="rs"><div class="rs-t">💕 ロマンス設定</div>${ir('ステータス',(rom.status||'')+(rom.status==='片思い'?dirS:''))}${ir('距離感',rom.distance)}${ir('関係性の詳細',rom.detail)}${ir('告白したのは？',rom.confession)}${ir('初めて意識したのは',rom.first)}${ir('2人だけの秘密',rom.secret)}${ir('メモ',rom.memo)}${!rom.status&&!rom.distance?'<div class="wnote-em">未入力</div>':''}<button class="btn-s" id="btnER">✏️ ロマンス設定を編集</button></div>${_hsHtml}<div class="qs"><div class="rs-t">📝 質問コーナー</div>${qas.map((q,i)=>`<div class="qi" data-qi="${i}"><div class="qq">${esc(q.q)}</div><div class="qa">${esc(q.a)||'<span style="color:#ccc">未回答</span>'}</div></div>`).join('')}${!qas.length?'<div class="wnote-em" style="margin-bottom:8px">質問がないよ！</div>':''}<button class="qa-add" id="btnAQA">＋ 質問を追加</button></div>`;
   $('btnER').onclick=openRomM;
   $('btnAQA').onclick=()=>openQAM(null);
   $('ct-info').querySelectorAll('.qi').forEach(el=>el.addEventListener('click',()=>openQAM(parseInt(el.dataset.qi))));
@@ -568,7 +569,7 @@ function renderCRel(){
   const rels=db.relations.filter(r=>r.fromId===curC);
   const cpRels=rels.filter(r=>{const t=db.chars.find(x=>x.id===r.toId);return t&&c.coupId&&t.coupId===c.coupId;});
   const otRels=rels.filter(r=>!cpRels.includes(r));
-  const rc=r=>{const t=db.chars.find(x=>x.id===r.toId);if(!t)return'';return`<div class="rc" data-rid="${r.id}"><div class="rt"><div class="ri">${t.images&&t.images[0]?`<img src="${t.images[0]}" alt="">`:ini(t.name)}</div><div class="rinfo"><div class="rn">${esc(t.name)}</div>${r.type?`<div class="rtype">${esc(r.type)}</div>`:''} ${r.call?`<div class="rcall">呼び方：${esc(r.call)}</div>`:''}</div></div><div class="rh">${hH(r.hearts||0)}</div>${r.current?`<div class="rmemo">${esc(r.current)}</div>`:''}</div>`;};
+  const rc=r=>{const t=db.chars.find(x=>x.id===r.toId);if(!t)return'';return`<div class="rc" data-rid="${r.id}"><div class="rt"><div class="ri">${t.images&&t.images[0]?`<img src="${t.images[0]}" alt="">`:ini(t.name)}</div><div class="rinfo"><div class="rn">${esc(t.name)}</div>${r.type?`<div class="rtype">${esc(r.type)}</div>`:''} ${r.call?`<div class="rcall">呼び方：${esc(r.call)}</div>`:''}</div></div><div class="rh">${hH(r.hearts||0)}</div>${r.current?`<div class="rmemo">💭 ${esc(r.current)}</div>`:''}</div>`;};
   let html='<div class="rl">';
   if(!rels.length) html+='<div class="empty"><div class="empty-e">🤝</div><p>関係性がないよ！<br>右下の ＋ で追加</p></div>';
   else{ if(cpRels.length) html+=`<div style="font-size:10px;font-weight:700;color:var(--text2);letter-spacing:1px;text-transform:uppercase;margin:0 0 8px">カップリングメンバー</div>${cpRels.map(rc).join('')}`; if(otRels.length) html+=`<div style="font-size:10px;font-weight:700;color:var(--text2);letter-spacing:1px;text-transform:uppercase;margin:14px 0 8px">${cpRels.length?'その他':'関係性'}</div>${otRels.map(rc).join('')}`; }
@@ -634,13 +635,13 @@ function delChar(){ db.chars=db.chars.filter(c=>c.id!==edC);db.relations=db.rela
 // ══════════ REL MODAL ══════════
 $('bSR').onclick=saveRel; $('bCR').onclick=()=>closeOv('mR');
 $('bDR').onclick=()=>askDel('関係性を削除しますか？',delRel);
-function openRM(id){ edR=id;const c=db.chars.find(x=>x.id===curC);const sameS=db.chars.filter(x=>x.seriesId===curS&&x.id!==curC);const cpRs=sameS.filter(x=>x.coupId&&c&&x.coupId===c.coupId);const otRs=sameS.filter(x=>!cpRs.includes(x));let opts='';if(cpRs.length)opts+=`<optgroup label="カップリングメンバー">${cpRs.map(x=>`<option value="${x.id}">${esc(x.name)}</option>`).join('')}</optgroup>`;if(otRs.length)opts+=`<optgroup label="その他">${otRs.map(x=>`<option value="${x.id}">${esc(x.name)}</option>`).join('')}</optgroup>`;$('rf-tgt').innerHTML=opts||'<option value="">（キャラがいないよ）</option>';const r=id?db.relations.find(x=>x.id===id):null;$('mRT').textContent=r?'関係性を編集':'関係性を追加';['rf-type','rf-call','rf-meet','rf-cur','rf-memo'].forEach(i=>$(i).value=r?r[i.replace('rf-','cur'===i.replace('rf-','')?'current':i.replace('rf-',''))]||'':'');if(r)$('rf-tgt').value=r.toId;renderH(r?r.hearts||0:0,true,'rf-hr');$('bDR').style.display=r?'block':'none';openOv('mR'); }
+function openRM(id){ edR=id;const c=db.chars.find(x=>x.id===curC);const sameS=db.chars.filter(x=>x.seriesId===curS&&x.id!==curC);const cpRs=sameS.filter(x=>x.coupId&&c&&x.coupId===c.coupId);const otRs=sameS.filter(x=>!cpRs.includes(x));let opts='';if(cpRs.length)opts+=`<optgroup label="カップリングメンバー">${cpRs.map(x=>`<option value="${x.id}">${esc(x.name)}</option>`).join('')}</optgroup>`;if(otRs.length)opts+=`<optgroup label="その他">${otRs.map(x=>`<option value="${x.id}">${esc(x.name)}</option>`).join('')}</optgroup>`;$('rf-tgt').innerHTML=opts||'<option value="">（キャラがいないよ）</option>';const r=id?db.relations.find(x=>x.id===id):null;$('mRT').textContent=r?'関係性を編集':'関係性を追加';if(r){$('rf-type').value=r.type||'';$('rf-call').value=r.call||'';$('rf-meet').value=r.meet||'';$('rf-cur').value=r.current||'';$('rf-memo').value=r.memo||'';$('rf-tgt').value=r.toId;}else{['rf-type','rf-call','rf-meet','rf-cur','rf-memo'].forEach(i=>$(i).value='');}renderH(r?r.hearts||0:0,true,'rf-hr');$('bDR').style.display=r?'block':'none';openOv('mR'); }
 function saveRel(){ const toId=$('rf-tgt').value;if(!toId){alert('相手を選んでね！');return;} const data={id:edR||uid(),fromId:curC,toId,type:$('rf-type').value,call:$('rf-call').value,hearts:rH,meet:$('rf-meet').value,current:$('rf-cur').value,memo:$('rf-memo').value};if(edR)db.relations=db.relations.map(r=>r.id===edR?data:r);else db.relations.push(data);sv();closeOv('mR');renderCRel(); }
 function delRel(){ db.relations=db.relations.filter(r=>r.id!==edR);sv();closeOv('mR');renderCRel(); }
 
 renderTop();
 
-const APP_VER='1.0.2';
+const APP_VER='1.0.5';
 document.getElementById('verBadge').textContent='v'+APP_VER;
 const _ptr=document.createElement('div');_ptr.id='ptr-wrap';_ptr.textContent='↓ 引っ張って更新';document.body.appendChild(_ptr);
 let _ps=0,_pd=0,_pa=false;const _PT=70;
